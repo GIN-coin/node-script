@@ -11,14 +11,11 @@ CONF="gincoin.conf"
 PORT="10111"
 DATADIR="/root/.gincoincore"
 ADDNODES="https://masternodes.online/addnodes/GIN"
-ID=${1}
-DATA="/data/${ID}"
 IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short -4)
 
-if [[ -z ${ID} ]]; then
-  echo "Specify masternode ID as first param (e.g. ./node.sh MN1)"
-  exit 1
-fi
+read -p "Enter node name (e.g. MN1): " ID
+ID=${ID:-MN}
+DATA="/data/${ID}"
 
 if [[ -z ${IP} ]]; then
   echo "Could not resolve externa IPv4"
