@@ -13,7 +13,7 @@ DATADIR="/root/.gincoincore"
 ADDNODES="https://masternodes.online/addnodes/GIN"
 IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short -4)
 
-read -p "Enter node name (e.g. MN1): " ID
+read -p "Enter node name (e.g. MN1): " ID </dev/tty
 ID=${ID:-MN}
 DATA="/data/${ID}"
 
